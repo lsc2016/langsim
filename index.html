@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>langsim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button id="logo" class="logo" type="button" title="첫 화면으로">langsim</button>
+    <div class="lang-menu">
+      <button id="lang-button" class="lang-button" type="button" aria-haspopup="true" aria-expanded="false">ko ▾</button>
+      <ul id="lang-list" class="lang-list" hidden>
+        <li><button type="button" data-lang="ko">ko</button></li>
+        <li><button type="button" data-lang="en">en</button></li>
+        <li><button type="button" data-lang="zh">zh</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="viewport">
+    <div id="stage" class="stage">
+      <img id="room" class="layer room" alt="">
+      <div id="objects" class="layer objects"></div>
+
+      <div id="talk" class="talk" hidden>
+        <div id="bubble" class="bubble"></div>
+        <div id="choices" class="choices"></div>
+        <!-- inputMode "typing": 나중 단계에서 이 자리에 입력창이 들어온다 -->
+        <div id="typing" class="typing" hidden></div>
+      </div>
+      <div id="narration" class="narration" hidden></div>
+      <div id="hint" class="hint" hidden></div>
+      <div id="ending" class="ending" hidden></div>
+
+      <div id="dark" class="dark">
+        <button id="wake" class="wake" type="button"></button>
+      </div>
+    </div>
+  </main>
+
+  <div class="level-box" title="테스트용: 플레이어 수준">
+    <span id="level-label"></span>
+    <button id="level-down" type="button" aria-label="수준 내리기">−</button>
+    <span id="level-value">1</span>
+    <button id="level-up" type="button" aria-label="수준 올리기">+</button>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+  <div id="error" class="error" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

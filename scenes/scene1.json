@@ -1,0 +1,107 @@
+{
+  "_guide": "Situation layer for scene 1. No dialogue text here, only keys. Text lives in lang/<code>.json. Boxes are percentages of the stage (x, y = top-left corner).",
+  "id": "scene1",
+  "stage": { "aspect": "3 / 4" },
+  "assets": {
+    "room": "assets/room.svg",
+    "bed": "assets/bed.svg",
+    "windowClosed": "assets/window-closed.svg",
+    "windowOpen": "assets/window-open.svg",
+    "door": "assets/door.svg",
+    "lock": "assets/lock.svg",
+    "friend": "assets/friend.svg"
+  },
+  "intro": { "buttonKey": "ui.wake" },
+  "hintKey": "ui.hint",
+  "objects": [
+    {
+      "id": "window",
+      "image": "windowClosed",
+      "imageOpen": "windowOpen",
+      "box": { "x": 22, "y": 10, "w": 40, "h": 30 },
+      "onTap": { "action": "openWindow", "startDialogue": true }
+    },
+    {
+      "id": "door",
+      "image": "door",
+      "box": { "x": 68, "y": 26, "w": 27, "h": 52 },
+      "onTap": { "action": "locked", "lineKey": "narration.door", "badge": "lock" }
+    },
+    {
+      "id": "bed",
+      "image": "bed",
+      "box": { "x": 3, "y": 58, "w": 58, "h": 30 },
+      "onTap": { "action": "joke", "lineKey": "narration.bed" }
+    }
+  ],
+  "friend": {
+    "image": "friend",
+    "showIn": "window",
+    "box": { "x": 22, "y": 18, "w": 56, "h": 82 }
+  },
+  "dialogue": {
+    "start": "greet",
+    "nodes": {
+      "greet": {
+        "speaker": "friend",
+        "lineKey": "friend.greet",
+        "choices": [
+          { "key": "me.reply.1", "next": "good" },
+          { "key": "me.reply.2", "next": "bad" },
+          { "key": "me.reply.3", "next": "late" }
+        ]
+      },
+      "good": {
+        "speaker": "friend",
+        "lineKey": "friend.good",
+        "choices": [
+          { "key": "me.good.1", "next": "walk" },
+          { "key": "me.good.2", "next": "walk" },
+          { "key": "me.good.3", "next": "walk" }
+        ]
+      },
+      "bad": {
+        "speaker": "friend",
+        "lineKey": "friend.bad",
+        "choices": [
+          { "key": "me.bad.1", "next": "rest" },
+          { "key": "me.bad.2", "next": "rest" },
+          { "key": "me.bad.3", "next": "rest" }
+        ]
+      },
+      "late": {
+        "speaker": "friend",
+        "lineKey": "friend.late",
+        "choices": [
+          { "key": "me.late.1", "next": "walk" },
+          { "key": "me.late.2", "next": "walk" },
+          { "key": "me.late.3", "next": "walk" }
+        ]
+      },
+      "walk": {
+        "speaker": "friend",
+        "lineKey": "friend.walk",
+        "choices": [
+          { "key": "me.walk.1", "next": "bye" },
+          { "key": "me.walk.2", "next": "bye" },
+          { "key": "me.walk.3", "next": "bye" }
+        ]
+      },
+      "rest": {
+        "speaker": "friend",
+        "lineKey": "friend.rest",
+        "choices": [
+          { "key": "me.rest.1", "next": "bye" },
+          { "key": "me.rest.2", "next": "bye" },
+          { "key": "me.rest.3", "next": "bye" }
+        ]
+      },
+      "bye": {
+        "speaker": "friend",
+        "lineKey": "friend.bye",
+        "end": true
+      }
+    }
+  },
+  "endKey": "ui.end"
+}
