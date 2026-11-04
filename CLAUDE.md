@@ -18,6 +18,7 @@
 ## 시작점
 - 실행: 이 폴더에서 `python3 -m http.server` → `http://localhost:8000`. (index.html 을 더블클릭하면 json 읽기가 막혀 안 됨)
 - 읽는 순서: `README.md` → `scenes/scene1.json` → `app.js` 의 `main()` (맨 아래) 부터 위로.
+- key 맞춤 확인: `node check_keys.js` (장면·app.js 가 쓰는 key 가 세 언어 파일에 모두 있는지, 읽기만 함).
 
 ## 고치는 규칙
 - 있는 것을 지우고 새로 만들지 말고, 더하고 보완하기.
